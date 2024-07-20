@@ -7,12 +7,10 @@ export const userDefinition = basicModelDefinition.extend({
   password: z.string().min(8),
 });
 
-export const createUserInput = userDefinition
-  .omit({
-    _id: true,
-    createdAt: true,
-    updatedAt: true,
-  })
-  .partial();
+export const createUserInput = userDefinition.omit({
+  _id: true,
+  createdAt: true,
+  updatedAt: true,
+});
 
 export type TCreateUserInput = z.infer<typeof createUserInput>;
