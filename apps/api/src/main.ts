@@ -2,6 +2,17 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+
+  app.setGlobalPrefix(`api/${process.env.API_VERSION!}`);
+
+  app.enableCors({
+    origin: true,
+    methods: 'GET,POST,PUT,DELETE,PATCH',
+    preflightContinue: false,
+    allowedHeaders: 'Content Type, Accept',
+    credentials: true,
+  });
+
+  await app.listen(process.env.PORT!);
 }
 bootstrap();
