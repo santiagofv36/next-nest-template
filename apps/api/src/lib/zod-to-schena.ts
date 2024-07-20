@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-// zod-to-class.ts
 import {
   z,
   ZodObject,
@@ -28,9 +27,6 @@ function getMongooseType(zodType: ZodTypeAny): any {
   } else if (zodType instanceof ZodOptional || zodType instanceof ZodNullable) {
     return getMongooseType(zodType._def.innerType);
   }
-  //   else {
-  //     throw new Error(`Unsupported Zod type: ${zodType.constructor.name}`);
-  //   }
   return Object;
 }
 
