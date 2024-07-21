@@ -7,14 +7,14 @@ import { userDefinition, TCreateUserInput } from '@packages/models';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
-  @UsePipes(new ZodValidationPipe(userDefinition))
-  create(@Body() body: TCreateUserInput) {
-    return this.authService.signUp(body);
-  }
+  // @Post()
+  // @UsePipes(new ZodValidationPipe(userDefinition))
+  // create(@Body() body: TCreateUserInput) {
+  //   return this.authService.signUp(body);
+  // }
 
-  @Get()
-  getUsers() {
-    return this.authService.getUsers();
-  }
+  // @Get()
+  // getUsers() {
+  //   return this.authService.getUsers();
+  // }
 }

@@ -1,7 +1,8 @@
 import type { z } from 'zod';
 import { userDefinition } from './user.dto';
 import { Document, type Types, Schema } from 'mongoose';
-
+import { sessionSchema } from '../session';
+import { hash } from 'argon2';
 
 export type IUser = z.infer<typeof userDefinition>;
 
@@ -12,6 +13,7 @@ export const userSchema = new Schema<IUser>(
     email: { type: String, required: true, unique: true },
     name: { type: String, required: true },
     password: { type: String, required: true },
+    activeSessions: sessionSchema,
   },
   { timestamps: true }
 );

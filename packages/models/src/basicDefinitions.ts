@@ -10,3 +10,22 @@ export const basicDefinition = z.object({
 export const basicModelDefinition = basicDefinition.extend({
   active: z.boolean().default(true),
 });
+
+export const paginateParams = z.object({
+  page: z.number(),
+  perPage: z.number(),
+});
+
+export type TPaginateInput = z.infer<typeof paginateParams>;
+
+export type Pagination<Model> = {
+  count: number;
+  items: Model[];
+  pageInfo: {
+    currentPage: number;
+    perPage: number;
+    page: number;
+    hasPreviousPage: boolean;
+    hasNextPage: boolean;
+  };
+};
