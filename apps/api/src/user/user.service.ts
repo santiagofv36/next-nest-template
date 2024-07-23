@@ -23,7 +23,9 @@ export class UserService implements IService<IUser, TFilterUsersInput> {
     projection?: ProjectionType<IUser> | null,
     options?: QueryOptions<IUser> | null,
   ): Promise<IUser[] | IUser> {
-    return this.User.find(filter, projection, options).select('-password'); // Here is the population added if needed
+    return this.User.find(filter, projection, options)
+      .select('-password')
+      .populate('address'); // Here is the population added if needed
   }
 
   async findOne(

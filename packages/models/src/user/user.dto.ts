@@ -1,12 +1,15 @@
 import { z } from 'zod';
-import { basicModelDefinition } from '../basicDefinitions';
+import { basicModelDefinition, objectIdString } from '../basicDefinitions';
 import { sessionDefinition } from '../session';
+import { addressDefinition } from '../address';
+import { Types } from 'mongoose';
 
 export const userDefinition = basicModelDefinition.extend({
   email: z.string().email({ message: 'Invalid email' }),
   name: z.string().min(2),
   password: z.string().min(8),
   activeSessions: sessionDefinition,
+  address: z.union([objectIdString, addressDefinition]), // if it is many just use z.array(z.instanceof(Types.ObjectId)) and in the schema use [Schema.Types.ObjectId]
 });
 
 export const createUserInput = userDefinition.omit({

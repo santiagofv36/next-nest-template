@@ -29,3 +29,7 @@ export type Pagination<Model> = {
     hasNextPage: boolean;
   };
 };
+
+export const objectIdString = z.string().refine((val) => Types.ObjectId.isValid(val), {
+  message: 'Invalid ObjectId',
+}).transform((val) => new Types.ObjectId(val));
