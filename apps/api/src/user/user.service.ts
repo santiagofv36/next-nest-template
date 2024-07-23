@@ -7,13 +7,7 @@ import {
   TFilterUsersInput,
   TFindUserByEmail,
 } from '@packages/models';
-import {
-  FilterQuery,
-  Model,
-  ProjectionType,
-  QueryOptions,
-  Types,
-} from 'mongoose';
+import { FilterQuery, Model, ProjectionType, QueryOptions } from 'mongoose';
 import { User } from './schema/user.model';
 import { IService } from 'src/core/service.interface';
 
@@ -29,7 +23,7 @@ export class UserService implements IService<IUser, TFilterUsersInput> {
     projection?: ProjectionType<IUser> | null,
     options?: QueryOptions<IUser> | null,
   ): Promise<IUser[] | IUser> {
-    return this.User.find(filter, projection, options); // Here is the population added if needed
+    return this.User.find(filter, projection, options).select('-password'); // Here is the population added if needed
   }
 
   async findOne(

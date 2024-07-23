@@ -2,7 +2,6 @@ import type { z } from 'zod';
 import { userDefinition } from './user.dto';
 import { Document, type Types, Schema } from 'mongoose';
 import { sessionSchema } from '../session';
-import { hash } from 'argon2';
 
 export type IUser = z.infer<typeof userDefinition>;
 
