@@ -3,7 +3,7 @@ import { createUserInput, userDefinition } from '@packages/models';
 import { hash } from 'argon2';
 import { Document, Types } from 'mongoose';
 import { Address, AddressSchema } from '../../address/schema/address.model';
-import { zodToClass } from '../../lib/zod-to-schema';
+import { zodToClass } from '../../../lib/zod-to-schema';
 import { Type, Exclude } from 'class-transformer';
 
 @Schema({

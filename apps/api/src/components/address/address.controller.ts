@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, UsePipes } from '@nestjs/common';
 import { AddressService } from './address.service';
-import { ZodValidationPipe } from '../pipes';
+import { ZodValidationPipe } from '../../core/pipes';
 import { createAddressInput, TCreateAddressInput } from '@packages/models';
 
 @Controller('address')

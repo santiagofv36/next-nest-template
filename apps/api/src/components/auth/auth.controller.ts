@@ -1,6 +1,6 @@
 import { Body, Controller, Post, UsePipes, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { ZodValidationPipe } from 'src/pipes/zodValidation.pipe';
+import { ZodValidationPipe } from 'src/core/pipes/zodValidation.pipe';
 import { userDefinition, TCreateUserInput } from '@packages/models';
 
 @Controller('auth')

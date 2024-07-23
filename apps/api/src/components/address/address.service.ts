@@ -8,7 +8,7 @@ import {
 } from '@packages/models';
 import { FilterQuery, Model, ProjectionType, QueryOptions } from 'mongoose';
 import { Address } from './schema/address.model';
-import { IService } from '../core/service.interface';
+import { IService } from '../../core/service.interface';
 
 @Injectable()
 export class AddressService implements IService<IAddress, TFilterAddressInput> {
