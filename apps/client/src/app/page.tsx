@@ -21,7 +21,7 @@ export default function Home() {
     <div>
       <Button
         onClick={() => {
-          signUp.mutate(sentData);
+          // signUp.mutate(sentData);
         }}
       >
         Click me

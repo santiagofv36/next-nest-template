@@ -11,12 +11,11 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "allowSyntheticDefaultImports": true,
     "plugins": [
       {
         "name": "next"
@@ -24,12 +23,6 @@
     ],
     "skipLibCheck": true,
     "incremental": true,
-    "baseUrl": ".",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "strictBindCallApply": true,
-    "noFallthroughCasesInSwitch": true,
-    "declaration": true,
   },
   "include": [
     "next-env.d.ts",
